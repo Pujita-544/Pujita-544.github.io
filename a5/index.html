@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+  <h1>Details</h1>
+  <script>
+    function showDetails() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      document.getElementById("Details").innerHTML =
+        "Name: " + name + "<br>" +
+        "Email: " + email + "<br>" +
+        "Password: " + password;
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="name" placeholder="Enter your name"><br><br>
+  <input type="text" id="email" placeholder="Enter your email"><br><br>
+  <input type="text" id="password" placeholder="Enter your password"><br><br>
+  <button onclick="showDetails()" style="background-color: blue; color: white;">Submit</button>
+
+  <hr>
+  <div id="Details"></div>
+</body>
+</html>
