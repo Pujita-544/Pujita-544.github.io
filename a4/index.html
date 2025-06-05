@@ -4,43 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1> Assignment 4</h1>
     <script>
-        function greet(){
-            alert(txtname.value);
+        function add(a, b) {
+            return a + b;
         }
-        function calcadd() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            addResult.innerHTML = a + b;
+
+        function subtract(a, b) {
+            return a - b;
         }
-        function calcsub() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            subResult.innerHTML = a - b;
+
+        function multiply(a, b) {
+            return a * b;
         }
-        function calcmul() {
-            let a = Number(txtnum1.value);
-            let b = Number(txtnum2.value);
-            //alert(a + b);
-            mulResult.innerHTML = a * b;
+
+        function divide(a, b) {
+            if (b === 0) {
+                alert("Cannot divide by zero");
+                return null;
+            }
+            return a / b;
+        }
+
+        function calc() {
+            const num1 = Number(document.getElementById('input1').value);
+            const num2 = Number(document.getElementById('input2').value);
+            document.write("Sum: " + add(num1, num2) + "<br>");
+            document.write("Difference: " + subtract(num1, num2) + "<br>");
+            document.write("Product: " + multiply(num1, num2) + "<br>");
+            document.write("Quotient: " + divide(num1, num2) + "<br>");
         }
     </script>
 </head>
 <body>
-    <input type="text"  id="txtname">
-    <button onclick="greet()" style="background-color: crimson;">Click </button>
-    <hr/>
-    <input type="text" id="txtnum1">
-    <input type="text" id="txtnum2">
-    <button onclick= "calcadd()" style="background-color: chocolate;">Add</button>
-    <button onclick= "calcsub()" style="background-color: chocolate;">Subtract</button>
-    <button onclick= "calcmul()" style="background-color: chocolate;">Multiply</button>
-    <hr/>
-    <div id="addResult"></div>
-    <div id="subResult"></div>
-    <div id="mulResult"></div>
+    <h2>Objectives</h2>
+    <ul>
+        <li>Take input of two numbers</li>
+        <li>When clicked button, it should call calc</li>
+        <li>calc function is used to callback add, subtract, multiply, divide</li>
+    </ul>
+
+    <input type="number" id="input1" />
+    <input type="number" id="input2" />
+    <button onclick= calc() style="background-color: yellow;">Calc</button> 
 </body>
 </html>
