@@ -1,50 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <script>
-        function add(a, b) {
-            return a + b;
+        function addition(){
+            let a = Number(t1.value);
+            let b = Number(t2.value);
+            dvResult.innerHTML += "Addition: " + (a + b) + "<br>";
         }
-
-        function subtract(a, b) {
-            return a - b;
+        function subtraction(){
+            let a = Number(t1.value);
+            let b = Number(t2.value);
+            dvResult.innerHTML += "Subtraction: " + (a - b) + "<br>";
         }
-
-        function multiply(a, b) {
-            return a * b;
+        function multiplication(){
+            let a = Number(t1.value);
+            let b = Number(t2.value);
+            dvResult.innerHTML += "Multiplication: " + (a * b) + "<br>";
         }
-
-        function divide(a, b) {
-            if (b === 0) {
-                alert("Cannot divide by zero");
-                return null;
+        function division(){
+            let a = Number(t1.value);
+            let b = Number(t2.value);
+            if(b === 0){
+                alert("Division by zero is not allowed");
+            } else {
+                dvResult.innerHTML += "Division: " + (a / b) + "<br>";
             }
-            return a / b;
         }
-
-        function calc() {
-            const num1 = Number(document.getElementById('input1').value);
-            const num2 = Number(document.getElementById('input2').value);
-            document.write("Sum: " + add(num1, num2) + "<br>");
-            document.write("Difference: " + subtract(num1, num2) + "<br>");
-            document.write("Product: " + multiply(num1, num2) + "<br>");
-            document.write("Quotient: " + divide(num1, num2) + "<br>");
+        function calc(){ 
+            addition();
+            subtraction();
+            multiplication();
+            division();
         }
     </script>
 </head>
 <body>
-    <h2>Objectives</h2>
-    <ul>
-        <li>Take input of two numbers</li>
-        <li>When clicked button, it should call calc</li>
-        <li>calc function is used to callback add, subtract, multiply, divide</li>
-    </ul>
-
-    <input type="number" id="input1" />
-    <input type="number" id="input2" />
-    <button onclick= calc() style="background-color: yellow;">Calc</button> 
+    <input type="text" id="t1" placeholder="Enter value of a">
+    <input type="text" id="t2" placeholder="Enter value of b">
+    <input type="button" value="Result" onclick="calc()">
+    <div id="dvResult"></div>
 </body>
 </html>
