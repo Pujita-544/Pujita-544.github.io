@@ -3,22 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title>Fruits List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <p1>Assignment 6</p1>
     <h1>Fruit List</h1>
 
+    <div>
+        <input id="fruitInput" type="text" placeholder="Enter a fruit name">
+        <button id="addBtn">Add</button>
+    </div>
+
+    <div id="fruitList"></div>
+
     <script>
-        function showFruits() {
-            const fruits = ["Apple", "Banana", "Cherry", "Mango", "Orange", "Pineapple", "Strawberry", "Watermelon"];
-            let fruitList = "<ul>";
-            for (let i = 0; i < fruits.length; i++) {
-                fruitList += "<li>" + fruits[i] + "</li>";
-            }
-            fruitList += "</ul>";
-            document.getElementById("fruitList").innerHTML = fruitList;
+        const fruits = [
+            "Apple", "Banana", "Cherry", "Mango",
+            "Orange", "Pineapple", "Strawberry", "Watermelon"
+        ];
+
+        function renderList() {
+            const listItems = fruits
+                .map(fruit => `<li>${fruit}</li>`)
+                .join("");
+            document.getElementById("fruitList").innerHTML =
+                `<ul>${listItems}</ul>`;
         }
-</head>
-<body>
-    
+
+        function addFruit() {
+            const input = document.getElementById("fruitInput");
+            const newFruit = input.value.trim();
+            if (newFruit) {
+                fruits.push(newFruit);
+                input.value = "";
+                renderList();
+            }
+        }
+
+        document.getElementById("addBtn").addEventListener("click", addFruit);
+        renderList();
+    </script>
 </body>
 </html>
