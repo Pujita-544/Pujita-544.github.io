@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruits List</title>
+    <title>Lists</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p1>Assignment 6</p1>
+    <p>Assignment 6</p>
     <h1>Fruit List</h1>
 
     <div>
         <input id="fruitInput" type="text" placeholder="Enter a fruit name">
         <button id="addBtn">Add</button>
     </div>
-
     <div id="fruitList"></div>
 
     <script>
-        const fruits = [
-            "Apple", "Banana", "Cherry", "Mango",
-            "Orange", "Pineapple", "Strawberry", "Watermelon"
-        ];
-
+        const fruits = []; 
         function renderList() {
             const listItems = fruits
                 .map(fruit => `<li>${fruit}</li>`)
                 .join("");
+
             document.getElementById("fruitList").innerHTML =
-                `<ul>${listItems}</ul>`;
+                fruits.length ? `<ul>${listItems}</ul>` : "<p>No fruits added yet.</p>";
         }
 
         function addFruit() {
             const input = document.getElementById("fruitInput");
             const newFruit = input.value.trim();
+
             if (newFruit) {
                 fruits.push(newFruit);
                 input.value = "";
                 renderList();
             }
         }
-
         document.getElementById("addBtn").addEventListener("click", addFruit);
         renderList();
     </script>
