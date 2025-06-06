@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lists</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <p>Assignment 6</p>
-    <h1 style="center">Fruit List</h1>
-
-    <div>
-        <input id="fruitInput" type="text" placeholder="Enter a fruit name">
-        <button id="addBtn">Add</button>
-    </div>
-    <div id="fruitList"></div>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit List</title>
+    <p> Assignment 6 </p>
     <script>
-        const fruits = []; 
-        function renderList() {
-            const listItems = fruits
-                .map(fruit => `<li>${fruit}</li>`)
-                .join("");
-
-            document.getElementById("fruitList").innerHTML =
-                fruits.length ? `<ul>${listItems}</ul>` : "<p>No fruits added yet.</p>";
-        }
-
-        function addFruit() {
-            const input = document.getElementById("fruitInput");
-            const newFruit = input.value.trim();
-
-            if (newFruit) {
-                fruits.push(newFruit);
-                input.value = "";
-                renderList();
-            }
-        }
-        document.getElementById("addBtn").addEventListener("click", addFruit);
+      const fruits = [];
+      function add() {
+        const input = document.getElementById("txt1").value.trim();
+        if (input === "") return;
+        fruits.push(input);
         renderList();
+        document.getElementById("txt1").value = "";
+      }
+
+      function remove(index) {
+        fruits.splice(index, 1);
+        renderList();
+      }
+
+      function renderList() {
+        const listHTML = fruits
+          .map(
+            (fruit, index) =>
+              `<li>${fruit} <button onclick="remove(${index})">Delete</button></li>`
+          )
+          .join("");
+        document.getElementById("fruitList").innerHTML = listHTML;
+      }
     </script>
-</body>
+  </head>
+  <body>
+    <div>
+      <h1 style="text-align: center;">Fruit List</h1>
+      <input type="text" id="txt1" />
+      <button onclick="add()">Add</button>
+      <ul id="fruitList"></ul>
+    </div>
+  </body>
 </html>
