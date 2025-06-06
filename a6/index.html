@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <p1>Assignment 6</p1>
+    <h1>Fruit List</h1>
+
+    <script>
+        function showFruits() {
+            const fruits = ["Apple", "Banana", "Cherry", "Mango", "Orange", "Pineapple", "Strawberry", "Watermelon"];
+            let fruitList = "<ul>";
+            for (let i = 0; i < fruits.length; i++) {
+                fruitList += "<li>" + fruits[i] + "</li>";
+            }
+            fruitList += "</ul>";
+            document.getElementById("fruitList").innerHTML = fruitList;
+        }
+</head>
+<body>
+    
+</body>
+</html>
