@@ -4,28 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruit List</title>
-    <p> Assignment 6 </p>
     <script>
-      let fruits = []; 
+      let fruits = [];
+
+      function del(value) {
+        fruits = fruits.filter((e) => e != value);
+        dispFruits();
+      }
+
+      function dispFruits() {
+        let listHTML = fruits
+          .map(
+            (fruit) =>
+              `<li>${fruit} <button onclick="del('${fruit}')">Delete</button></li>`
+          )
+          .join("");
+        document.getElementById("fruitList").innerHTML = listHTML;
+      }
 
       function add() {
         const input = document.getElementById("txt1").value.trim();
-        if (input === "") return;
-        fruits.push(input);
-        renderList();
-        document.getElementById("txt1").value = "";
+        if (input) {
+          fruits.push(input);
+          dispFruits();
+          document.getElementById("txt1").value = "";
+        }
       }
 
-      function remove(index) {
-        fruits = fruits.filter((_, i) => i !== index);
-        renderList();
-      }
-
-      function renderList() {
-        const listHTML = fruits
+      function search() {
+        const searchValue = document.getElementById("txt1").value.trim();
+        const filtered = fruits.filter((fruit) => fruit == searchValue);
+        let listHTML = filtered
           .map(
-            (fruit, index) =>
-              `<li>${fruit} <button onclick="remove(${index})">Delete</button></li>`
+            (fruit) =>
+              `<li>${fruit} <button onclick="del('${fruit}')">Delete</button></li>`
           )
           .join("");
         document.getElementById("fruitList").innerHTML = listHTML;
@@ -37,6 +49,7 @@
       <h1 style="text-align: center;">Fruit List</h1>
       <input type="text" id="txt1" />
       <button onclick="add()">Add</button>
+      <button onclick="search()">Search</button>
       <ul id="fruitList"></ul>
     </div>
   </body>
