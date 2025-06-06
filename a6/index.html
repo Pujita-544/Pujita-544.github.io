@@ -3,49 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruits Lists</title>
-    <p> Assignment 6 </p>
-    <script>
-      let fruits = []; 
-
-      function add() {
-        const input = document.getElementById("txt1").value.trim();
-        if (input === "") return;
-        fruits.push(input);
-        renderList();
-        document.getElementById("txt1").value = "";
-      }
-
-      function remove(index) {
-        fruits = fruits.filter((_, i) => i !== index);
-        renderList();
-      }
-
-      function renderList() {
-        const listHTML = fruits
-          .map(
-            (fruit, index) =>
-              `<li>${fruit} <button onclick="remove(${index})">Delete</button></li>`
-          )
-          .join("");
-        document.getElementById("fruitList").innerHTML = listHTML;
-      }
-    </script>
-  </head>
-  <body>
-    <div>
-      <h1 style="text-align: center;">Fruit List</h1>
-      <input type="text" id="txt1" />
-      <button onclick="add()">Add</button>
-      <ul id="fruitList"></ul>
-    </div>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruit List</title>
     <p> Assignment 6 </p>
     <script>
