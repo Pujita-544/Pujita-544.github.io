@@ -1,0 +1,11 @@
+
+.App-Row{
+    display:flex;
+    justify-content: space-around;
+}
+
+.App-Row div{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+}
