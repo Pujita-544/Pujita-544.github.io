@@ -1,5 +1,6 @@
+
 const users = [];
-const user={}
+let user={}
 const showLogin = () => {
   let str = `
     <div>
@@ -49,21 +50,20 @@ const showHome = () => {
 };
 
 const addUser = () => {
-  const user = {
+  const obj = {
     name: document.getElementById("txtName").value,
     email: document.getElementById("txtEmail").value,
     pass: document.getElementById("txtPass").value,
     balance:0
   };
-  users.push(user);
-  console.log(users);
+  users.push(obj);
   showLogin();
 };
 
 const validateUser = () => {
   let email = document.getElementById("txtEmail").value;
   let pass = document.getElementById("txtPass").value;
-  const user = users.find(
+   user = users.find(
     (e) => e.email === email && e.pass === pass
   )
   if (user) {
