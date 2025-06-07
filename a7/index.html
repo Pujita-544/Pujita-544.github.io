@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
-    <title>Fruits Lists</title>
+    <title>Fruits</title>
 </head>
 <body>
      <title>Fruit List</title>
     <script>
       let fruits = [];
+      let searchTerm = "";
       function del(value) {
         fruits = fruits.filter((e) => e != value);
         dispFruits()
       }
       function dispFruits() {
-        let listHTML = fruits
+        let filteredFruits = fruits;
+          if(searchTerm.trim() !== "") {
+            filteredFruits = fruits.filter(fruit => 
+            fruit.toLowerCase().includes(searchTerm.toLowerCase()));
+          }
+        let listHTML = filteredFruits
           .map(
             (fruit) =>
               `<li>${fruit}<button onclick=del('${fruit}')>Delete</button></li>`
@@ -27,6 +33,12 @@
       function add() {
         const input = document.getElementById("txt1").value;
         fruits.push(input);
+        searchTerm = "";
+        document.getElementById("searhBox").value = ""; 
+        dispFruits()
+      }
+      function searchFruits(){
+        searchTerm = document.getElementById("searhBox").value;
         dispFruits()
       }
     </script>
@@ -36,6 +48,8 @@
       <h1>Fruit List</h1>
       <input type="text" id="txt1" />
       <button onclick="add()">Add</button>
+      <input type = "text" id = "searhBox" placeholder="Search Fruits" />
+        <button onclick="searchFruits()">Search</button>
       <ul id="fruitList"></ul>
     </div>
 </body>
