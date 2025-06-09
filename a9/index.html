@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const products = [
+            {  id:1,
+               name:"Product 1",
+               desc:"ghurhgrughowehfhi wrifeghwun roigrgni",
+               price: 123,
+               imgUrl:""
+            },
+            {  id:2,
+               name:"Product 1",
+               desc:"ghurhgrughowehfhi wrifeghwun roigrgni",
+               price: 123,
+               imgUrl:""
+            },
+            {  id:3,
+               name:"Product 1",
+               desc:"ghurhgrughowehfhi wrifeghwun roigrgni",
+               price: 123,
+               imgUrl:""
+            },
+        ];
+    let str = "<div class = 'App-Row'>";
+    products.map((product) => {  //dynamic creation
+        str += `<div>
+            <img src=${product.imgUrl}>
+            <h3>${product.name}</h3>
+            <p>${product.desc}</p>
+            <h4>${product.price}</h4>
+            <button>Add to cart
+            </div>`
+});
+    root.innerHTML = str;
+    </script>
+</body>
+</html>
