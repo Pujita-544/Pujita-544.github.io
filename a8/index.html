@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Shopping Site</title>
+    <title>Shopping</title>
 </head>
 <body>
-     <h1>Welcome</h1>
+     <h1> Welcome </h1>
     <div id="root"></div>
     <script>
         const products = [
@@ -16,22 +16,22 @@
                 id: 1,
                 name: "Product 1",
                 desc: "This is the description of product 1",
-                price: Rs.10,000
-                imgurl: "https://picsum.photos/id/0/300/300"
+                price: 1000,
+                imgurl: "https://m.media-amazon.com/images/I/51szM-K-iTL._SY675_.jpg"
             },
             {
                 id: 2,
                 name: "Product 2",
                 desc: "This is the description of product 2",
-                price: Rs.20,000
-                imgurl: "https://picsum.photos/id/1/300/300"
+                price: 2000,
+                imgurl: ""
             },
             {
                 id: 3,
                 name: "Product 3",
                 desc: "This is the description of product 3",
-                price: Rs.30,000
-                imgurl: "https://picsum.photos/id/2/300/300"
+                price: 3000,
+                imgurl: "https://m.media-amazon.com/images/I/51szM-K-iTL._SY675_.jpg"
             },
         ];
         let str ="<div class = 'App-Row'>"
@@ -41,11 +41,11 @@
                 <h3>${product.name}</h3>
                 <p>${product.desc}</p>
                 <p>Price: $${product.price}</p>
-                <button>Add to Cart</button>
+                <button> Add to Cart </button>
             </div>`;
         });
            
     document.getElementById("root").innerHTML = str;  
-    </script>    
+    </script>
 </body>
 </html>
